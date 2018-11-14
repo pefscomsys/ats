@@ -1,0 +1,161 @@
+/**
+custom made styles for the page
+*/
+
+body
+{
+    background: url('../images/bg.jpg');
+}
+
+th
+{
+    font-weight: bold !important;
+}
+
+dd, dt
+{
+    font-size: 16px;
+}
+
+.company
+{
+    color: #000;
+    padding: 5px;
+    font-size: 25px;
+    margin-left: -10%;
+    margin-right: 10%;
+    font-family: serif;
+    font-weight: bold;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.required
+{
+    font-family: serif;
+    font-size: 1.1em;
+    color: red;
+}
+
+.col-form-label
+{
+    text-align: right;
+    font-weight: bold;
+}
+
+.left-align
+{
+    text-align: left;
+}
+
+.right-align
+{
+    text-align: right;
+}
+
+.nav-stacked > li > a
+{
+    border-radius: 0;
+    border-top: 0;
+    border-left: 3px solid transparent;
+    color: #444;
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.nav-me
+{
+    display: block;
+}
+
+.img-circle
+{
+    border-radius: 50%;
+}
+
+.last-list
+{
+    padding: 10px;
+}
+
+.search-box
+{
+    font-size: 20px;
+    color: #222;
+    font-weight: bold;
+}
+.prof
+{
+    width: 60%;
+    margin: auto;
+}
+
+.document
+{
+    border: 3px solid #d2d6de;
+}
+
+.head-text
+{
+    font-size: 20px;
+}
+
+.list-head
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+.bigger
+{
+    font-size: 1.5em;
+}
+
+.myLabel
+{
+    display: block;
+    padding-left: 0px;
+    padding-right: 10px;
+    padding-bottom: calc(.375rem + 1px);
+    padding-top: calc(.375rem + 1px);
+    line-height: 1.5;
+}
+
+.underline
+{
+    text-decoration: underline;
+}
+
+.text15
+{
+    font-size: 1.5em;
+}
+
+.text12
+{
+    font-size: 1.2em;
+}

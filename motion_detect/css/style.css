@@ -1,0 +1,18 @@
+#camStream {
+  display: block;
+  border: 2px solid red;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 60%;
+  margin: auto;
+}
+
+#canvas{
+    display: none;
+}
+
+#canvasFinal {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid green;
+}
