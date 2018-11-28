@@ -24,7 +24,6 @@ if(isset($_POST['upload']))
 
     //prepare do the plate recognition
     $plate = new CheckPlate($imageURL);
-    echo 'All done';
 
 }
 

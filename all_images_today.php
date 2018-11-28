@@ -51,8 +51,10 @@ include_once 'includes/navigation.php'; //page navigations.
                           while ($row = mysqli_fetch_array($result) ) {
                               ?>
                         <div class="col-md-2">
-                            <img src="<?php echo $row['file_path']; ?>" alt=""
-                                width="100px" height="100px">
+                            <a href="<?php echo $row['file_path']; ?>" data-lightbox="<?php echo $row['file_path']; ?>">
+                                <img src="<?php echo $row['file_path']; ?>" alt=""
+                                    width="100px" height="100px">
+                            </a>
                         </div>
                               <?php
                           }

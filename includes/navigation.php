@@ -16,6 +16,20 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="run_plate.php">
+                        <i class="fa fa-check"></i>
+                        Run Plate
+                    </a>
+                </li>
+
+                <li>
+                    <a href="motion_detect" target="_blank">
+                        <i class="mdi mdi-camera"></i>
+                        Detect Motion
+                    </a>
+                </li>
+
 
             </ul>
             <!-- End navigation menu -->

@@ -14,7 +14,8 @@ class CheckPlate
 
     public $plateNumber;
 
-    const command = "alpr --country us --json ";
+    const commandLinux = "alpr --country us --json ";
+    const commandWindows = "C:\\Program Files\\openalpr\\alpr.exe --country us --json";
 
     function __construct($path)
     {
@@ -39,19 +40,43 @@ class CheckPlate
 
     private function exec()
     {
-        $fullCommand = SELF::command . $this->path;
+        $platform = $this->getPlatform();
 
         //prepare the environment for runnint the command
         $oldldpath = getenv('LD_LIBRARY_PATH');
         putenv("LD_LIBRARY_PATH=");
 
+        if($platform == "LINUX")
+        {
+            $fullCommand = SELF::commandLinux . $this->path;
+        }
+        else {
+            $fullCommand = SELF::commandWindows . $this->path;
+        }
+
         //execute the command
+        session_write_close();
         exec($fullCommand, $result);
 
         //sert variables back
         putenv("LD_LIBRARY_PATH=$oldldpath");
 
         return $result;
+    }
+
+    private function getPlatform()
+    {
+        $OSdetails = php_uname();
+
+        $os = substr($OSdetails, 0, 5);
+
+        if($os == "Linux")
+        {
+            return "LINUX";
+        }
+        else {
+            return "WINDOWS";
+        }
     }
 
     private function parseResult()

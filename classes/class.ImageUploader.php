@@ -12,6 +12,12 @@ class ImageUploader
 
     private $dbc;
 
+    /**
+    * @var $normal  // determines if the script is one level deep or not
+    */
+
+    public $normal = true; // default is true.
+
     const destinationPath = "../images/all/";
     const destinationPathShort = "images/all/";
 
@@ -35,13 +41,13 @@ class ImageUploader
 
         //test if the directory exist
 
-        if($this->directoryExists(SELF::destinationPath))
+        if($this->directoryExists($this->getUploadDirectory()))
         {
             //move file
             $this->moveFile();
         }
         else {
-            $this->createDirectory(SELF::destinationPath);
+            $this->createDirectory($this->getUploadDirectory());
             $this->moveFile();
         }
 
@@ -72,14 +78,14 @@ class ImageUploader
 
     private function createDirectory($directory)
     {
-         $mode = 0755;
+        $mode = 0755;
         mkdir($directory, $mode, TRUE);
 
     }
 
     private function moveFile()
     {
-        $destination = SELF::destinationPath . $this->fileName;
+        $destination = $this->getUploadUrl();
 
         // move_uploaded_file($this->tmpPath, $destination);
         if(move_uploaded_file($this->tmpPath, $destination))
@@ -98,7 +104,7 @@ class ImageUploader
         $month = date("m");
         $year = date("Y");
 
-        $path = $this->getRelativePath();
+        $path = $this->getUploadUrl();
 
         $query = "INSERT INTO `all_pictures`
                 (`mysql_date`, `day`, `month`, `year`, `file_path`)
@@ -107,6 +113,32 @@ class ImageUploader
         " ;
 
         $this->dbc->query($query);
+    }
+
+    public function getUploadDirectory()
+    {
+        //if its a normal upload then use the ../image
+        // else use image/
+        if($this->normal == false)
+        {
+            return SELF::destinationPathShort;
+        }
+        else {
+            return SELF::destinationPath;
+        }
+    }
+
+    public function getUploadUrl()
+    {
+        //if its a normal upload then use the ../image
+        // else use image/
+        if($this->normal == false)
+        {
+            return $this->getRelativePath();
+        }
+        else {
+            return $this->getFilePath();
+        }
     }
 
     private function getRelativePath()

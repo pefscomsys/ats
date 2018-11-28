@@ -82,8 +82,11 @@ include_once 'includes/navigation.php'; //page navigations.
                                         <tr>
                                             <td><?php echo $count++; ?></td>
                                             <td>
-                                                <img src="<?php echo $row['path']; ?>" alt=""
-                                                width="100px" height="100px">
+                                                <a href="<?php echo $row['path']; ?>" data-lightbox="Image">
+                                                    <img src="<?php echo $row['path']; ?>" alt=""
+                                                    width="100px" height="100px">
+                                                </a>
+
                                             </td>
                                             <td>
                                                 <?php echo date_from_timestamp($row['time_added']); ?>
