@@ -15,7 +15,7 @@ class CheckPlate
     public $plateNumber;
 
     const commandLinux = "alpr --country us --json ";
-    const commandWindows = "C:\\Program Files\\openalpr\\alpr.exe --country us --json";
+    const commandWindows = " \"C:\\Program Files\\openalpr\\alpr.exe \" --country us --json  ";
 
     function __construct($path)
     {
